@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Sample Katalon Healthcheck Project]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.khcproject.qa.listeners.MyTestListeners"/>
+  </listeners>
+  <test thread-count="5" name="Sample Katalon HC Tests(failed)">
+    <classes>
+      <class name="com.khcproject.qa.testcases.MakeAppointment">
+        <methods>
+          <include name="tearDown"/>
+          <include name="makeAppointment"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.khcproject.qa.testcases.MakeAppointment -->
+    </classes>
+  </test> <!-- Sample Katalon HC Tests(failed) -->
+</suite> <!-- Failed suite [Sample Katalon Healthcheck Project] -->

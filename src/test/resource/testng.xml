@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Sample Katalon Healthcheck Project">
+<listeners>
+	<listener class-name="com.khcproject.qa.listeners.MyTestListeners" />
+  </listeners>
+	<test thread-count="6" name="Sample Katalon HC Tests">
+		<classes>
+			<class name="com.khcproject.qa.testcases.LoginTest" />
+			<class name="com.khcproject.qa.testcases.MakeAppointmentTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
