@@ -42,7 +42,6 @@ public static String captureScreenshot(WebDriver driver,String testName) {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		return destinationScreenshotPath;
 }
 

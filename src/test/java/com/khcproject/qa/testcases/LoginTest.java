@@ -2,17 +2,13 @@ package com.khcproject.qa.testcases;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.khcproject.qa.base.Base;
-import com.khcproject.qa.pages.LoginPage;
 import com.khcproject.qa.pages.MakeAppointmentPage;
 
 public class LoginTest extends Base{
 	public WebDriver driver;
-	LoginPage lp;
 	MakeAppointmentPage mp;
 
 	public LoginTest()
@@ -20,21 +16,8 @@ public class LoginTest extends Base{
 	super();	
 	}
 	
-	@BeforeMethod
-	public void setup()
-	{
-		driver= browserInitialization(prop.getProperty("browser"));
-		lp = new LoginPage(driver);
-		
-	}
-		
-	@AfterMethod
-	public void tearDown() 
-	{
-		driver.quit();
-	}
-
-	@Test
+	
+	@Test(priority=1)
 	public void verifyLoginWithValidCredentials() 
 	{
 		mp = lp.loginWithValidCredentials(prop.getProperty("username"), prop.getProperty("password"));

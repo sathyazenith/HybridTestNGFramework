@@ -9,12 +9,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.khcproject.qa.pages.LoginPage;
 
 public class Base {
 	WebDriver driver;
 	public Properties prop;
-	public Properties dataProp;
-
+	public LoginPage lp;
+	
 	public Base()
 	{
 		
@@ -51,5 +55,19 @@ public class Base {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
 		driver.get(prop.getProperty("URL"));
 		return driver;
+	}
+	
+	@BeforeMethod
+	public void setup()
+	{
+		driver= browserInitialization(prop.getProperty("browser"));
+		lp = new LoginPage(driver);
+		
+	}
+		
+	@AfterMethod
+	public void tearDown() 
+	{
+		driver.quit();
 	}
 }

@@ -1,21 +1,17 @@
 package com.khcproject.qa.testcases;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.khcproject.qa.base.Base;
 import com.khcproject.qa.pages.AppointmentConfirmationPage;
-import com.khcproject.qa.pages.LoginPage;
 import com.khcproject.qa.pages.MakeAppointmentPage;
 import com.khcproject.qa.utils.UtilsQA;
 
 public class MakeAppointmentTest extends Base {
 	public WebDriver driver;
-	LoginPage lp;
 	MakeAppointmentPage	mp;
 	AppointmentConfirmationPage acp;
 	public MakeAppointmentTest()
@@ -23,19 +19,6 @@ public class MakeAppointmentTest extends Base {
 		super();
 	}
 	
-	@BeforeMethod
-	public void setup()
-	{
-		driver= browserInitialization(prop.getProperty("browser"));
-	lp=new LoginPage(driver);
-	}
-
-	@AfterMethod
-	public void tearDown() 
-	{
-		driver.quit();
-	}
-
 	@Test(enabled=false)
 	public void makeAppointment() 
 	{
@@ -60,7 +43,7 @@ public class MakeAppointmentTest extends Base {
 	}
 	
 	@Test(priority=1,dataProvider="validDataSupplier",enabled=false)
-	public void makeAppointmentUsingDataDriven(String facility,String program,String date,String comment) throws InterruptedException 
+	public void makeAppointmentUsingDataDriven(String facility,String program,String date,String comment) 
 	{
 	mp=lp.loginWithValidCredentials(prop.getProperty("username"),prop.getProperty("password"));
 	acp=mp.enterRegistrationDetails(facility, program, date, comment);
