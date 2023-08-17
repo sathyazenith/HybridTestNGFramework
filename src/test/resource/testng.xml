@@ -5,8 +5,7 @@
 		<listener
 			class-name="com.khcproject.qa.listeners.MyTestListeners" />
 	</listeners>
-	<test thread-count="6" name="Sample Katalon HC Tests"
-		parallel="classes">
+	<test thread-count="6" name="Sample Katalon HC Tests">
 		<classes>
 			<class name="com.khcproject.qa.testcases.LoginTest" />
 			<class name="com.khcproject.qa.testcases.MakeAppointmentTest" />
